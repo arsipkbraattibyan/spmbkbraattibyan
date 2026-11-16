@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SPMB RA At Tibyan 2027/2028</title>
+  <meta name="description" content="Penerimaan Murid Baru RA At Tibyan tahun ajaran 2027/2028.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --green: #176B45;
+  --green-dark: #105235;
+  --green-light: #E7F3EB;
+  --yellow: #F5C84C;
+  --text: #25352C;
+  --muted: #718078;
+  --white: #FFFFFF;
+  --soft: #F5F8F5;
+  --border: #E4EBE5;
+  --shadow: 0 12px 35px rgba(25,75,48,.09);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: var(--text);
+  line-height: 1.65;
+  background: var(--white);
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+button, input, textarea, select { font: inherit; }
+button { cursor: pointer; }
+
+.container { width: min(1160px, 92%); margin: auto; }
+
+/* HEADER */
+.header {
+  height: 76px;
+  background: rgba(255,255,255,.97);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-container { height: 100%; display: flex; justify-content: space-between; align-items: center; }
+.brand { display: flex; align-items: center; gap: 11px; }
+
+.brand-logo {
+  width: 45px; height: 45px;
+  background: var(--green);
+  color: white;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.brand strong { display: block; color: var(--green); font-size: 17px; line-height: 1.2; }
+.brand small { color: var(--muted); font-size: 11px; }
+
+.nav-menu { display: flex; align-items: center; gap: 23px; }
+.nav-menu a { font-size: 13px; font-weight: 800; transition: .2s; }
+.nav-menu a:hover { color: var(--green); }
+.nav-menu .nav-button { background: var(--green); color: white; padding: 11px 18px; border-radius: 9px; }
+.nav-menu .nav-button:hover { color: white; }
+
+.menu-toggle { display: none; background: none; border: none; font-size: 25px; color: var(--green); }
+
+/* BUTTON */
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 13px 22px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 900;
+  border: 1px solid transparent;
+  transition: .2s;
+}
+
+.btn:hover { transform: translateY(-2px); }
+.btn-primary { background: var(--green); color: white; }
+.btn-primary:hover { background: var(--green-dark); }
+.btn-outline { border-color: var(--green); color: var(--green); background: white; }
+.btn-yellow { background: var(--yellow); color: var(--green-dark); }
+
+/* HERO */
+.hero { padding: 80px 0; background: linear-gradient(120deg,#F3F8F3,#E8F3E9); overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 55px; }
+
+.eyebrow {
+  display: inline-block;
+  color: var(--green);
+  background: var(--green-light);
+  padding: 7px 13px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .8px;
+  margin-bottom: 18px;
+}
+
+.hero h1 { font-size: clamp(36px,5vw,57px); line-height: 1.15; font-weight: 900; letter-spacing: -1.7px; margin-bottom: 22px; }
+.hero h1 span { color: var(--green); }
+.hero-content > p { max-width: 510px; color: var(--muted); font-size: 16px; margin-bottom: 27px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.hero-note { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 28px; color: var(--muted); font-size: 12px; font-weight: 800; }
+.hero-note span { color: var(--green); }
+
+.hero-image { position: relative; }
+.hero-image > img { width: 100%; height: 400px; object-fit: cover; border-radius: 25px; box-shadow: var(--shadow); }
+
+.image-label {
+  position: absolute;
+  bottom: 18px; left: 18px; right: 18px;
+  background: white;
+  padding: 15px 20px;
+  border-radius: 13px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+}
+
+.image-label strong { color: var(--green); font-size: 16px; }
+.image-label small { color: var(--muted); }
+
+/* SECTION */
+.section { padding: 85px 0; }
+.section-soft { background: var(--soft); }
+.section-heading { text-align: center; max-width: 650px; margin: 0 auto 45px; }
+.section-heading .eyebrow { margin-bottom: 12px; }
+
+.section-heading h2,
+.profile-content h2,
+.contact-grid h2 {
+  font-size: clamp(27px,4vw,38px);
+  line-height: 1.25;
+  font-weight: 900;
+  color: var(--green-dark);
+  margin-bottom: 13px;
+}
+
+.section-heading p,
+.profile-content > p,
+.contact-grid > div > p { color: var(--muted); font-size: 14px; }
+
+/* ADVANTAGES */
+.advantage-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
+.advantage-card { padding: 27px 22px; border: 1px solid var(--border); border-radius: 16px; background: white; transition: .25s; }
+.advantage-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+
+.advantage-icon {
+  width: 48px; height: 48px;
+  display: grid;
+  place-items: center;
+  background: var(--green-light);
+  color: var(--green);
+  border-radius: 13px;
+  font-size: 23px;
+  margin-bottom: 17px;
+}
+
+.advantage-card h3 { color: var(--green-dark); font-size: 17px; margin-bottom: 8px; }
+.advantage-card p { font-size: 13px; color: var(--muted); }
+
+/* PROFILE */
+.profile-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 55px; }
+.profile-image img { width: 100%; height: 390px; object-fit: cover; border-radius: 22px; }
+.profile-content > p { margin-bottom: 20px; white-space: pre-line; }
+
+.vision-box { border-left: 4px solid var(--green); background: white; padding: 15px 18px; margin-top: 13px; border-radius: 0 12px 12px 0; }
+.vision-box strong { color: var(--green); }
+.vision-box p { font-size: 13px; color: var(--muted); margin-top: 5px; white-space: pre-line; }
+
+/* CARDS */
+.card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+.content-card { background: white; border: 1px solid var(--border); border-radius: 17px; overflow: hidden; transition: .25s; }
+.content-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.content-card img { width: 100%; height: 205px; object-fit: cover; }
+.content-card-body { padding: 20px; }
+.content-card h3 { color: var(--green-dark); font-size: 17px; margin-bottom: 9px; }
+.content-card p { color: var(--muted); font-size: 13px; white-space: pre-line; }
+
+/* GALLERY */
+.gallery-filter { display: flex; justify-content: center; flex-wrap: wrap; gap: 9px; margin-bottom: 28px; }
+
+.filter-btn {
+  padding: 9px 17px;
+  border: 1px solid var(--border);
+  background: white;
+  border-radius: 30px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.filter-btn.active { background: var(--green); color: white; border-color: var(--green); }
+
+.gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.gallery-item { position: relative; overflow: hidden; border-radius: 15px; cursor: pointer; background: var(--green-light); }
+.gallery-item img { width: 100%; height: 240px; object-fit: cover; transition: .3s; }
+.gallery-item:hover img { transform: scale(1.05); }
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 15px 14px;
+  color: white;
+  background: linear-gradient(transparent,rgba(0,0,0,.7));
+  font-size: 13px;
+  font-weight: 900;
+}
+
+/* SPMB */
+.section-green { background: var(--green-dark); color: white; }
+.light-heading h2, .light-heading p { color: white; }
+.light-heading .eyebrow { background: rgba(255,255,255,.15); color: var(--yellow); }
+
+.spmb-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 15px; }
+.spmb-card { padding: 23px; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.16); border-radius: 15px; }
+.spmb-card > span { font-size: 25px; color: var(--yellow); }
+.spmb-card h3 { font-size: 16px; margin: 10px 0; }
+.spmb-card p { font-size: 13px; color: #D8E8DD; white-space: pre-line; }
+
+.spmb-bottom {
+  margin-top: 30px;
+  padding: 24px 28px;
+  background: white;
+  color: var(--green-dark);
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.spmb-bottom p { color: var(--muted); font-size: 13px; white-space: pre-line; }
+
+/* FORM */
+.form-container { max-width: 800px; }
+.registration-form { padding: 35px; border: 1px solid var(--border); border-radius: 20px; box-shadow: var(--shadow); }
+
+.registration-form h3 {
+  color: var(--green);
+  font-size: 17px;
+  margin: 10px 0 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; }
+.form-group { display: flex; flex-direction: column; gap: 7px; }
+.form-group.full { grid-column: 1/-1; }
+.form-group label { font-size: 13px; font-weight: 800; }
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 12px 14px;
+  background: #FAFCFA;
+  color: var(--text);
+  outline: none;
+  font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(23,107,69,.08); }
+
+.form-group textarea { min-height: 90px; resize: vertical; }
+
+/* kolom jebakan bot: disembunyikan dari manusia */
+.hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.agreement { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: var(--muted); margin: 20px 0; }
+.agreement input { margin-top: 5px; accent-color: var(--green); }
+
+.submit-btn { width: 100%; border: none; }
+.submit-btn:disabled { opacity: .6; cursor: wait; }
+
+.form-message { margin-top: 15px; font-size: 13px; text-align: center; color: #B3261E; }
+
+.success-box { margin-top: 22px; padding: 25px; text-align: center; background: var(--green-light); border-radius: 14px; }
+.success-box[hidden] { display: none; }
+
+.success-icon {
+  width: 50px; height: 50px;
+  display: grid;
+  place-items: center;
+  margin: auto auto 12px;
+  background: var(--green);
+  color: white;
+  border-radius: 50%;
+  font-size: 25px;
+}
+
+.success-box h3 { border: 0; margin: 0 0 8px; }
+.success-box strong { display: block; color: var(--green); font-size: 22px; margin: 15px 0; }
+
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 45px; }
+.contact-item { margin: 22px 0; }
+.contact-item strong { color: var(--green); }
+.contact-item p { color: var(--muted); font-size: 14px; white-space: pre-line; }
+.map-container { height: 340px; overflow: hidden; border-radius: 17px; background: var(--green-light); }
+.map-container iframe { width: 100%; height: 100%; border: 0; }
+
+/* FOOTER */
+.footer { background: #0D3825; color: white; padding: 35px 0; }
+.footer-content { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.footer h3 { color: var(--yellow); font-size: 19px; }
+.footer p { font-size: 12px; color: #D4E5DA; }
+
+/* FLOATING WHATSAPP */
+.floating-wa {
+  position: fixed;
+  right: 23px; bottom: 23px;
+  width: 55px; height: 55px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: #20B95B;
+  font-size: 25px;
+  z-index: 90;
+  box-shadow: var(--shadow);
+}
+
+/* LIGHTBOX */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0,0,0,.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.lightbox.show { display: flex; }
+.lightbox img { max-width: 90%; max-height: 78vh; object-fit: contain; }
+.lightbox p { color: white; margin-top: 15px; }
+.lightbox button { position: absolute; top: 20px; right: 30px; color: white; font-size: 35px; border: none; background: none; }
+
+.loading { grid-column: 1/-1; text-align: center; color: var(--muted); padding: 35px; }
+
+/* RESPONSIVE */
+@media (max-width: 950px) {
+  .nav-menu { gap: 12px; }
+  .nav-menu a { font-size: 11px; }
+  .hero-grid { gap: 25px; }
+  .advantage-grid, .spmb-grid { grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 760px) {
+  .header { height: 68px; }
+  .menu-toggle { display: block; }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 68px; left: 0; right: 0;
+    padding: 18px 5%;
+    background: white;
+    box-shadow: var(--shadow);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav-menu.show { display: flex; }
+  .nav-menu a { padding: 12px; font-size: 14px; border-bottom: 1px solid var(--border); }
+  .nav-menu .nav-button { margin-top: 10px; text-align: center; }
+
+  .hero { padding: 50px 0; }
+  .hero-grid, .profile-grid, .contact-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 39px; }
+  .hero-image > img { height: 280px; }
+  .section { padding: 60px 0; }
+  .advantage-grid { grid-template-columns: repeat(2,1fr); }
+  .card-grid, .gallery-grid { grid-template-columns: repeat(2,1fr); gap: 12px; }
+  .content-card img { height: 155px; }
+  .content-card-body { padding: 14px; }
+  .content-card h3 { font-size: 14px; }
+  .content-card p { font-size: 12px; }
+  .gallery-item img { height: 170px; }
+  .spmb-bottom { flex-direction: column; align-items: flex-start; }
+  .registration-form { padding: 20px; }
+  .footer-content { flex-direction: column; align-items: flex-start; }
+}
+
+@media (max-width: 480px) {
+  .advantage-grid, .spmb-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .advantage-card { padding: 17px 13px; }
+  .card-grid, .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item img { height: 140px; }
+  .form-grid { grid-template-columns: 1fr; }
+  .form-group.full { grid-column: auto; }
+  .hero h1 { font-size: 34px; }
+  .hero-note { gap: 8px; font-size: 10px; }
+}
+</style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav-container">
+      <a href="#beranda" class="brand">
+        <div class="brand-logo" id="logoInitial">AT</div>
+        <div>
+          <strong id="navSchool">RA AT TIBYAN</strong>
+          <small>SPMB 2027/2028</small>
+        </div>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Buka menu">☰</button>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#beranda">Beranda</a>
+        <a href="#profil">Profil</a>
+        <a href="#program">Program</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#fasilitas">Fasilitas</a>
+        <a href="#spmb">SPMB</a>
+        <a href="#kontak">Kontak</a>
+        <a href="#daftar" class="nav-button">Daftar Sekarang</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <span class="eyebrow">PENERIMAAN MURID BARU 2027/2028</span>
+
+          <h1>
+            Mari Tumbuh,<br>
+            Belajar dan<br>
+            <span>Berprestasi Bersama Kami!</span>
+          </h1>
+
+          <p id="heroDescription">
+            Membangun generasi berakhlak, cerdas, kreatif,
+            dan mandiri bersama RA At Tibyan.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#daftar" class="btn btn-primary">Daftar Sekarang →</a>
+            <a href="#profil" class="btn btn-outline">Kenali Sekolah</a>
+          </div>
+
+          <div class="hero-note">
+            <span>✓</span> Pendidikan ramah anak
+            <span>✓</span> Lingkungan belajar menyenangkan
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <img id="heroImage"
+            src="https://placehold.co/700x550/e7f3eb/176b45?text=RA+AT+TIBYAN"
+            alt="Kegiatan RA At Tibyan">
+          <div class="image-label">
+            <strong>RA At Tibyan</strong>
+            <small>Tempat tumbuh dan belajar bersama</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KEUNGGULAN -->
+    <section class="section advantages">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">MENGAPA MEMILIH KAMI?</span>
+          <h2>Awal Terbaik untuk Masa Depan Anak</h2>
+          <p>Kami mendukung tumbuh kembang anak melalui pengalaman belajar yang bermakna.</p>
+        </div>
+
+        <div class="advantage-grid">
+          <article class="advantage-card">
+            <div class="advantage-icon">☪</div>
+            <h3>Akhlak Mulia</h3>
+            <p>Membiasakan nilai-nilai keagamaan dan perilaku baik sejak dini.</p>
+          </article>
+
+          <article class="advantage-card">
+            <div class="advantage-icon">✿</div>
+            <h3>Ramah Anak</h3>
+            <p>Mendukung suasana belajar yang nyaman dan menyenangkan.</p>
+          </article>
+
+          <article class="advantage-card">
+            <div class="advantage-icon">✎</div>
+            <h3>Kreativitas</h3>
+            <p>Mendorong anak bereksplorasi, berkarya, dan mengembangkan potensi.</p>
+          </article>
+
+          <article class="advantage-card">
+            <div class="advantage-icon">♡</div>
+            <h3>Pendampingan</h3>
+            <p>Mendampingi perkembangan anak sesuai tahap pertumbuhannya.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROFIL -->
+    <section class="section section-soft" id="profil">
+      <div class="container profile-grid">
+        <div class="profile-image">
+          <img id="profileImage"
+            src="https://placehold.co/650x450/e7f3eb/176b45?text=Profil+Sekolah"
+            alt="Profil sekolah">
+        </div>
+
+        <div class="profile-content">
+          <span class="eyebrow">TENTANG KAMI</span>
+          <h2 id="profileTitle">Mengenal RA At Tibyan</h2>
+          <p id="profileDescription">
+            Selamat datang di RA At Tibyan.
+            Mari mengenal lingkungan dan program pendidikan kami.
+          </p>
+
+          <div class="vision-box">
+            <strong>Visi Sekolah</strong>
+            <p id="visionText">Informasi visi sekolah.</p>
+          </div>
+
+          <div class="vision-box">
+            <strong>Misi Sekolah</strong>
+            <p id="missionText">Informasi misi sekolah.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAM -->
+    <section class="section" id="program">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">PROGRAM PENDIDIKAN</span>
+          <h2>Program Unggulan Kami</h2>
+          <p>Berbagai pengalaman belajar untuk mendukung perkembangan anak.</p>
+        </div>
+
+        <div class="card-grid" id="programList">
+          <div class="loading">Memuat program...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERI -->
+    <section class="section section-soft" id="galeri">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">DOKUMENTASI SEKOLAH</span>
+          <h2>Kegiatan Seru Bersama Kami</h2>
+          <p>Melihat berbagai aktivitas dan pengalaman belajar anak-anak.</p>
+        </div>
+
+        <div class="gallery-filter" id="galleryFilters">
+          <button class="filter-btn active" data-category="Semua">Semua</button>
+        </div>
+
+        <div class="gallery-grid" id="galleryList">
+          <div class="loading">Memuat galeri...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FASILITAS -->
+    <section class="section" id="fasilitas">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">SARANA DAN PRASARANA</span>
+          <h2>Fasilitas Sekolah</h2>
+          <p>Mengenal lingkungan dan fasilitas yang tersedia di sekolah.</p>
+        </div>
+
+        <div class="card-grid" id="facilityList">
+          <div class="loading">Memuat fasilitas...</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INFORMASI SPMB -->
+    <section class="section section-green" id="spmb">
+      <div class="container">
+        <div class="section-heading light-heading">
+          <span class="eyebrow">INFORMASI PENERIMAAN</span>
+          <h2>SPMB RA At Tibyan 2027/2028</h2>
+          <p>Informasi penerimaan murid baru tahun ajaran 2027/2028.</p>
+        </div>
+
+        <div class="spmb-grid">
+          <article class="spmb-card">
+            <span>▣</span>
+            <h3>Jadwal Pendaftaran</h3>
+            <p id="spmbJadwal">Informasi jadwal.</p>
+          </article>
+
+          <article class="spmb-card">
+            <span>✎</span>
+            <h3>Persyaratan</h3>
+            <p id="spmbPersyaratan">Informasi persyaratan.</p>
+          </article>
+
+          <article class="spmb-card">
+            <span>♧</span>
+            <h3>Kelompok Belajar</h3>
+            <p id="spmbKelompok">Informasi kelompok.</p>
+          </article>
+
+          <article class="spmb-card">
+            <span>Rp</span>
+            <h3>Biaya Pendidikan</h3>
+            <p id="spmbBiaya">Informasi biaya.</p>
+          </article>
+        </div>
+
+        <div class="spmb-bottom">
+          <div>
+            <h3 id="spmbStatus">Pendaftaran Dibuka</h3>
+            <p id="spmbProsedur">Silakan hubungi panitia untuk informasi lebih lanjut.</p>
+          </div>
+          <a href="#daftar" class="btn btn-yellow">Daftar Sekarang →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM PENDAFTARAN -->
+    <section class="section" id="daftar">
+      <div class="container form-container">
+        <div class="section-heading">
+          <span class="eyebrow">PENDAFTARAN ONLINE</span>
+          <h2>Daftarkan Ananda Sekarang</h2>
+          <p>Lengkapi data berikut untuk memulai proses pendaftaran.</p>
+        </div>
+
+        <form id="registrationForm" class="registration-form" novalidate>
+
+          <h3>01. Data Calon Murid</h3>
+
+          <div class="form-grid">
+            <div class="form-group full">
+              <label for="f-nama">Nama Lengkap Calon Murid *</label>
+              <input id="f-nama" name="nama" type="text" maxlength="150" required
+                placeholder="Masukkan nama lengkap">
+            </div>
+
+            <div class="form-group">
+              <label for="f-jk">Jenis Kelamin *</label>
+              <select id="f-jk" name="jk" required>
+                <option value="">Pilih jenis kelamin</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="groupSelect">Kelompok Belajar *</label>
+              <select name="kelompok" id="groupSelect" required>
+                <option value="">Pilih kelompok belajar</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="f-tempat">Tempat Lahir *</label>
+              <input id="f-tempat" name="tempatLahir" type="text" required
+                placeholder="Kota tempat lahir">
+            </div>
+
+            <div class="form-group">
+              <label for="f-tgl">Tanggal Lahir *</label>
+              <input id="f-tgl" name="tanggalLahir" type="date" required>
+            </div>
+
+            <div class="form-group full">
+              <label for="f-alamat">Alamat Lengkap *</label>
+              <textarea id="f-alamat" name="alamat" required
+                placeholder="Masukkan alamat tempat tinggal"></textarea>
+            </div>
+          </div>
+
+          <h3>02. Data Orang Tua</h3>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="f-ayah">Nama Ayah *</label>
+              <input id="f-ayah" name="ayah" type="text" required placeholder="Nama ayah">
+            </div>
+
+            <div class="form-group">
+              <label for="f-ibu">Nama Ibu *</label>
+              <input id="f-ibu" name="ibu" type="text" required placeholder="Nama ibu">
+            </div>
+
+            <div class="form-group full">
+              <label for="f-wa">Nomor WhatsApp Aktif *</label>
+              <input id="f-wa" name="whatsapp" type="tel" required
+                maxlength="20" placeholder="Contoh: 081234567890">
+            </div>
+          </div>
+
+          <h3>03. Informasi Tambahan</h3>
+
+          <div class="form-group">
+            <label for="f-tambahan">Catatan (Opsional)</label>
+            <textarea id="f-tambahan" name="tambahan"
+              placeholder="Informasi tambahan jika diperlukan"></textarea>
+          </div>
+
+          <!-- jebakan bot, jangan dihapus -->
+          <div class="hp-field" aria-hidden="true">
+            <label>Website</label>
+            <input type="text" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <label class="agreement">
+            <input type="checkbox" id="agreement" required>
+            <span>
+              Saya menyetujui penggunaan data ini untuk keperluan
+              proses penerimaan murid baru RA At Tibyan.
+            </span>
+          </label>
+
+          <button type="submit" class="btn btn-primary submit-btn" id="submitBtn">
+            Kirim Pendaftaran →
+          </button>
+
+          <div id="formMessage" class="form-message" role="status"></div>
+
+          <div id="successBox" class="success-box" hidden>
+            <div class="success-icon">✓</div>
+            <h3>Pendaftaran Berhasil!</h3>
+            <p>Terima kasih telah mendaftarkan ananda.</p>
+            <strong id="registrationNumber"></strong>
+            <p id="registeredName"></p>
+            <p>Silakan simpan nomor pendaftaran ini dan hubungi panitia sekolah untuk proses selanjutnya.</p>
+            <button type="button" class="btn btn-primary" id="whatsappAfterRegister">
+              Hubungi Panitia
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="section section-soft" id="kontak">
+      <div class="container contact-grid">
+        <div>
+          <span class="eyebrow">HUBUNGI KAMI</span>
+          <h2>Informasi Lebih Lanjut?</h2>
+          <p>Silakan hubungi RA At Tibyan untuk mendapatkan informasi mengenai pendaftaran dan kegiatan sekolah.</p>
+
+          <div class="contact-item">
+            <strong>Alamat Sekolah</strong>
+            <p id="contactAddress">Alamat sekolah.</p>
+          </div>
+
+          <div class="contact-item">
+            <strong>WhatsApp</strong>
+            <p id="contactWhatsapp">Nomor WhatsApp sekolah.</p>
+          </div>
+
+          <a href="#" id="contactWA" class="btn btn-primary" target="_blank" rel="noopener">
+            Hubungi WhatsApp →
+          </a>
+        </div>
+
+        <div class="map-container">
+          <iframe id="mapFrame"
+            title="Lokasi RA At Tibyan"
+            src="about:blank"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <h3 id="footerSchool">RA AT TIBYAN</h3>
+        <p>Membangun Generasi Berakhlak, Cerdas, Kreatif, dan Mandiri.</p>
+      </div>
+      <p>© 2027 RA At Tibyan. Semua Hak Dilindungi.</p>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOATING -->
+  <a href="#" id="floatingWA" class="floating-wa"
+    target="_blank" rel="noopener" aria-label="WhatsApp">☎</a>
+
+  <!-- IMAGE LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button id="closeLightbox" aria-label="Tutup">×</button>
+    <img id="lightboxImage" src="" alt="Foto kegiatan">
+    <p id="lightboxCaption"></p>
+  </div>
+
+<script>
+/* =================================
+   SPMB RA AT TIBYAN - JAVASCRIPT
+================================= */
+
+/* ============================================================
+   WAJIB DIISI: tempel URL Web App Apps Script (berakhiran /exec)
+   ============================================================ */
+const API_URL = 'https://script.google.com/macros/s/AKfycbwl7j1goOLjdiRzJKAV5Ca6quObfOhs0zxBrYUAzvN8U-uVEsmDln5KJJe9VkhSOaRY/exec';
+
+let whatsappNumber = '';
+let galleryData = [];
+
+/* =========================
+   UTILITAS
+========================= */
+
+function escapeHTML(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  })[char]);
+}
+
+// Mendukung link foto biasa dan link Google Drive.
+function safeImage(url) {
+  const fallback = 'https://placehold.co/600x400/e7f3eb/176b45?text=RA+At+Tibyan';
+
+  try {
+    const parsed = new URL(String(url || '').trim());
+
+    if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') {
+      return fallback;
+    }
+
+    if (parsed.hostname === 'drive.google.com' ||
+        parsed.hostname === 'docs.google.com') {
+      const match =
+        parsed.href.match(/\/d\/([\w-]+)/) ||
+        parsed.href.match(/[?&]id=([\w-]+)/);
+
+      if (match) return 'https://lh3.googleusercontent.com/d/' + match[1];
+    }
+
+    return parsed.href;
+  } catch (e) {}
+
+  return fallback;
+}
+
+function formatPhone(number) {
+  return String(number || '').replace(/\D/g, '').replace(/^0/, '62');
+}
+
+function setText(id, value, fallback = '') {
+  const element = document.getElementById(id);
+  if (element) element.textContent = value || fallback;
+}
+
+function makeWhatsAppLink(message = '') {
+  if (!whatsappNumber) return '#';
+
+  return 'https://wa.me/' + formatPhone(whatsappNumber) +
+    (message ? '?text=' + encodeURIComponent(message) : '');
+}
+
+function apiReady() {
+  return API_URL && API_URL.indexOf('PASTE_') !== 0;
+}
+
+/* =========================
+   LOAD DATA
+========================= */
+
+document.addEventListener('DOMContentLoaded', function() {
+  setupNavigation();
+  setupForm();
+  setupLightbox();
+  loadWebsiteData();
+});
+
+async function loadWebsiteData() {
+  if (!apiReady()) {
+    showLoadError('URL Web App belum diisi di index.html (API_URL).');
+    return;
+  }
+
+  try {
+    const response = await fetch(API_URL);
+    const data = await response.json();
+
+    if (!data || !data.success) {
+      throw new Error((data && data.message) || 'Data tidak valid.');
+    }
+
+    renderProfile(data.profile || {});
+    renderPrograms(data.programs || []);
+    renderGallery(data.gallery || []);
+    renderFacilities(data.facilities || []);
+    renderSPMB(data.spmb || {});
+    setupContact(data.profile || {});
+
+  } catch (error) {
+    console.error(error);
+    showLoadError();
+  }
+}
+
+function showLoadError(detail) {
+  document.querySelectorAll('.loading').forEach(el => {
+    el.textContent = 'Informasi belum dapat dimuat. Silakan hubungi sekolah.';
+  });
+
+  if (detail) console.warn(detail);
+}
+
+/* =========================
+   PROFIL SEKOLAH
+========================= */
+
+function renderProfile(profile) {
+  const schoolName = profile.namaSekolah || 'RA AT TIBYAN';
+
+  setText('navSchool', schoolName);
+  setText('footerSchool', schoolName);
+  setText('logoInitial', 'AT');
+
+  setText('heroDescription', profile.sambutan,
+    'Membangun generasi berakhlak, cerdas, kreatif, dan mandiri.');
+
+  setText('profileTitle', 'Mengenal ' + schoolName);
+  setText('profileDescription', profile.sejarah, 'Informasi profil sekolah.');
+  setText('visionText', profile.visi, 'Informasi visi sekolah.');
+  setText('missionText', profile.misi, 'Informasi misi sekolah.');
+
+  if (profile.heroImage) {
+    document.getElementById('heroImage').src = safeImage(profile.heroImage);
+  }
+
+  if (profile.fotoProfil) {
+    document.getElementById('profileImage').src = safeImage(profile.fotoProfil);
+  }
+
+  document.title = 'SPMB ' + schoolName + ' 2027/2028';
+}
+
+/* =========================
+   PROGRAM
+========================= */
+
+function renderPrograms(programs) {
+  const container = document.getElementById('programList');
+
+  if (!programs.length) {
+    container.innerHTML =
+      '<p class="loading">Program sekolah akan segera diperbarui.</p>';
+    return;
+  }
+
+  container.innerHTML = programs.map(item => `
+    <article class="content-card">
+      <img src="${safeImage(item['URL Gambar'])}"
+        alt="${escapeHTML(item['Nama Program'])}"
+        loading="lazy">
+      <div class="content-card-body">
+        <h3>${escapeHTML(item['Nama Program'])}</h3>
+        <p>${escapeHTML(item.Deskripsi)}</p>
+      </div>
+    </article>
+  `).join('');
+}
+
+/* =========================
+   GALERI
+========================= */
+
+function renderGallery(gallery) {
+  galleryData = gallery;
+  const container = document.getElementById('galleryList');
+  const filter = document.getElementById('galleryFilters');
+
+  if (!gallery.length) {
+    container.innerHTML =
+      '<p class="loading">Galeri kegiatan akan segera diperbarui.</p>';
+    return;
+  }
+
+  const categories = [
+    'Semua',
+    ...new Set(gallery.map(item => item.Kategori).filter(Boolean))
+  ];
+
+  filter.innerHTML = categories.map((category, index) => `
+    <button class="filter-btn ${index === 0 ? 'active' : ''}"
+      data-category="${escapeHTML(category)}">
+      ${escapeHTML(category)}
+    </button>
+  `).join('');
+
+  filter.querySelectorAll('.filter-btn').forEach(button => {
+    button.addEventListener('click', function() {
+      filter.querySelectorAll('.filter-btn').forEach(btn =>
+        btn.classList.remove('active')
+      );
+
+      this.classList.add('active');
+      displayGallery(this.dataset.category);
+    });
+  });
+
+  displayGallery('Semua');
+}
+
+function displayGallery(category) {
+  const container = document.getElementById('galleryList');
+
+  const filtered = category === 'Semua'
+    ? galleryData
+    : galleryData.filter(item => item.Kategori === category);
+
+  container.innerHTML = filtered.map(item => `
+    <div class="gallery-item" data-index="${galleryData.indexOf(item)}">
+      <img src="${safeImage(item['URL Gambar'])}"
+        alt="${escapeHTML(item.Judul)}"
+        loading="lazy">
+      <div class="gallery-caption">${escapeHTML(item.Judul)}</div>
+    </div>
+  `).join('');
+
+  container.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', function() {
+      openLightbox(galleryData[Number(this.dataset.index)]);
+    });
+  });
+}
+
+/* =========================
+   FASILITAS
+========================= */
+
+function renderFacilities(facilities) {
+  const container = document.getElementById('facilityList');
+
+  if (!facilities.length) {
+    container.innerHTML =
+      '<p class="loading">Informasi fasilitas akan segera diperbarui.</p>';
+    return;
+  }
+
+  container.innerHTML = facilities.map(item => `
+    <article class="content-card">
+      <img src="${safeImage(item['URL Gambar'])}"
+        alt="${escapeHTML(item['Nama Fasilitas'])}"
+        loading="lazy">
+      <div class="content-card-body">
+        <h3>${escapeHTML(item['Nama Fasilitas'])}</h3>
+        <p>${escapeHTML(item.Deskripsi)}</p>
+      </div>
+    </article>
+  `).join('');
+}
+
+/* =========================
+   INFORMASI SPMB
+========================= */
+
+function renderSPMB(spmb) {
+  setText('spmbJadwal', spmb.jadwal, 'Hubungi panitia sekolah.');
+  setText('spmbPersyaratan', spmb.persyaratan, 'Hubungi panitia sekolah.');
+  setText('spmbKelompok', spmb.kelompok, 'Hubungi panitia sekolah.');
+  setText('spmbBiaya', spmb.biaya, 'Hubungi panitia sekolah.');
+  setText('spmbProsedur', spmb.prosedur, 'Silakan hubungi panitia sekolah.');
+
+  const isOpen =
+    String(spmb.statusPendaftaran || '').trim().toUpperCase() === 'BUKA';
+
+  setText('spmbStatus', isOpen ? 'Pendaftaran Dibuka' : 'Pendaftaran Ditutup');
+
+  if (!isOpen) {
+    document.getElementById('registrationForm')
+      .querySelectorAll('input, select, textarea, button[type="submit"]')
+      .forEach(el => el.disabled = true);
+
+    setText('formMessage', 'Mohon maaf, pendaftaran saat ini ditutup.');
+  }
+
+  // Pilihan kelompok belajar diambil dari Spreadsheet (dipisah koma).
+  const groupSelect = document.getElementById('groupSelect');
+  const groups = (spmb.kelompok || '')
+    .split(/[,;\n]+/)
+    .map(x => x.trim())
+    .filter(Boolean);
+
+  if (groups.length) {
+    groupSelect.innerHTML =
+      '<option value="">Pilih kelompok belajar</option>' +
+      groups.map(group =>
+        `<option value="${escapeHTML(group)}">${escapeHTML(group)}</option>`
+      ).join('');
+  }
+}
+
+/* =========================
+   KONTAK
+========================= */
+
+function setupContact(profile) {
+  whatsappNumber = profile.whatsapp || '';
+
+  setText('contactAddress', profile.alamat, 'Alamat belum tersedia.');
+  setText('contactWhatsapp', profile.whatsapp, 'Nomor belum tersedia.');
+
+  const link = makeWhatsAppLink(
+    'Assalamu’alaikum, saya ingin bertanya tentang SPMB RA At Tibyan 2027/2028.'
+  );
+
+  document.getElementById('contactWA').href = link;
+  document.getElementById('floatingWA').href = link;
+
+  if (profile.maps) {
+    try {
+      const url = new URL(profile.maps);
+      const validHost = ['google.com', 'www.google.com', 'maps.google.com']
+        .includes(url.hostname);
+
+      if (url.protocol === 'https:' && validHost) {
+        document.getElementById('mapFrame').src = url.href;
+      }
+    } catch (e) {}
+  }
+}
+
+/* =========================
+   NAVIGASI
+========================= */
+
+function setupNavigation() {
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('navMenu');
+
+  toggle.addEventListener('click', function() {
+    menu.classList.toggle('show');
+  });
+
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      menu.classList.remove('show');
+    });
+  });
+}
+
+/* =========================
+   FORMULIR PENDAFTARAN
+========================= */
+
+function setupForm() {
+  const form = document.getElementById('registrationForm');
+  const submit = document.getElementById('submitBtn');
+  const message = document.getElementById('formMessage');
+
+  // Tanggal lahir tidak boleh di masa depan.
+  form.elements['tanggalLahir'].max = new Date().toISOString().split('T')[0];
+
+  form.addEventListener('submit', async function(event) {
+    event.preventDefault();
+    message.textContent = '';
+
+    if (!apiReady()) {
+      message.textContent = 'Formulir belum terhubung ke server (API_URL belum diisi).';
+      return;
+    }
+
+    if (!form.reportValidity()) return;
+
+    if (!document.getElementById('agreement').checked) {
+      message.textContent = 'Mohon setujui penggunaan data terlebih dahulu.';
+      return;
+    }
+
+    const formData = Object.fromEntries(new FormData(form).entries());
+
+    submit.disabled = true;
+    submit.textContent = 'Mengirim Pendaftaran...';
+
+    try {
+      // text/plain agar tidak memicu preflight CORS di Apps Script.
+      const response = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (!result || !result.success) {
+        message.textContent = (result && result.message) || 'Pendaftaran gagal.';
+        submit.disabled = false;
+        submit.textContent = 'Kirim Pendaftaran →';
+        return;
+      }
+
+      showSuccess(form, result);
+
+    } catch (error) {
+      console.error(error);
+      message.textContent = 'Terjadi kesalahan koneksi. Silakan coba lagi.';
+      submit.disabled = false;
+      submit.textContent = 'Kirim Pendaftaran →';
+    }
+  });
+}
+
+function showSuccess(form, result) {
+  const successBox = document.getElementById('successBox');
+  successBox.hidden = false;
+
+  setText('registrationNumber', result.number);
+  setText('registeredName', 'Nama calon murid: ' + result.name);
+
+  successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+  // Kunci formulir agar tidak terkirim dua kali.
+  form.querySelectorAll('input, select, textarea, #submitBtn')
+    .forEach(el => el.disabled = true);
+
+  document.getElementById('submitBtn').textContent = 'Terkirim ✓';
+
+  document.getElementById('whatsappAfterRegister').onclick = function() {
+    window.open(
+      makeWhatsAppLink(
+        'Assalamu’alaikum, saya telah mengirim pendaftaran SPMB RA At Tibyan 2027/2028. Nomor pendaftaran: ' +
+        result.number + '. Nama calon murid: ' + result.name
+      ),
+      '_blank',
+      'noopener'
+    );
+  };
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+function setupLightbox() {
+  const lightbox = document.getElementById('lightbox');
+
+  document.getElementById('closeLightbox').addEventListener('click', function() {
+    lightbox.classList.remove('show');
+  });
+
+  lightbox.addEventListener('click', function(event) {
+    if (event.target === lightbox) lightbox.classList.remove('show');
+  });
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') lightbox.classList.remove('show');
+  });
+}
+
+function openLightbox(item) {
+  document.getElementById('lightboxImage').src = safeImage(item['URL Gambar']);
+  setText('lightboxCaption', item.Judul);
+  document.getElementById('lightbox').classList.add('show');
+}
+</script>
+
+</body>
+</html>
