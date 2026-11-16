@@ -530,8 +530,7 @@ button { cursor: pointer; }
           <img id="logoImage" src="" alt="Logo sekolah">
         </div>
         <div>
-          <strong id="navSchool">KB RA AT TIBYAN</strong>
-          <small>SPMB 2027/2028</small>
+          <strong id="navSchool">KB-RA AT TIBYAN</strong>
         </div>
       </a>
 
@@ -1003,7 +1002,7 @@ const API_URL = 'https://script.google.com/macros/s/AKfycbwl7j1goOLjdiRzJKAV5Ca6
    ratio  : bentuk kotak, misal '4/3', '1/1', '5/4', '16/9', '3/4'
    radius : kelengkungan sudut dalam px (0 = kotak tajam)
    ============================================================ */
-const HERO_SETTINGS = { x: 0, y: 0, zoom: 1.25, ratio: '26/15', radius: 30 };
+const HERO_SETTINGS = { x: 50, y: 40, zoom: 1, ratio: '26/15', radius: 28 };
 
 let whatsappNumber = '';
 let galleryData = [];
@@ -1226,7 +1225,6 @@ function showLoadError(detail) {
 function renderProfile(profile) {
   const schoolName = profile.namaSekolah || 'KB RA AT TIBYAN';
 
-  setText('navSchool', schoolName);
   setText('footerSchool', schoolName);
   setText('logoInitial', 'AT');
 
