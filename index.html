@@ -70,6 +70,17 @@ button { cursor: pointer; }
   border: 3px solid var(--yellow);
 }
 
+/* jika logo dari Spreadsheet tersedia: tampilkan apa adanya, tanpa lingkaran */
+.brand-logo img { display: none; width: 100%; height: 100%; object-fit: contain; }
+.brand-logo.has-logo {
+  width: 54px; height: 54px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  font-size: 0;
+}
+.brand-logo.has-logo img { display: block; }
+
 .brand strong { display: block; color: var(--green); font-size: 17px; line-height: 1.2; font-weight: 900; letter-spacing: .5px; }
 .brand small { color: var(--muted); font-size: 11px; font-weight: 700; }
 
@@ -141,7 +152,17 @@ button { cursor: pointer; }
   background: var(--yellow);
   overflow: hidden;
 }
-.hero-circle img { width: 100%; height: 100%; object-fit: cover; }
+/* ATUR POSISI FOTO DI LINGKARAN:
+   --hero-pos = "geser-kiri-kanan geser-atas-bawah" (0% - 100%)
+   contoh: 50% 20% = fokus ke bagian atas foto, 50% 80% = bagian bawah.
+   --hero-zoom = perbesar/perkecil foto (1 = normal, 1.15 = zoom in). */
+.hero-circle { --hero-pos: 50% 40%; --hero-zoom: 1; }
+.hero-circle img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: var(--hero-pos);
+  transform: scale(var(--hero-zoom));
+}
 
 .sparkle { position: absolute; top: -26px; left: 14%; width: 54px; height: 54px; color: var(--yellow); }
 
@@ -477,7 +498,10 @@ button { cursor: pointer; }
   <header class="header">
     <div class="container nav-container">
       <a href="#beranda" class="brand">
-        <div class="brand-logo" id="logoInitial">AT</div>
+        <div class="brand-logo" id="brandLogo">
+          <span id="logoInitial">AT</span>
+          <img id="logoImage" src="" alt="Logo sekolah">
+        </div>
         <div>
           <strong id="navSchool">KB RA AT TIBYAN</strong>
           <small>SPMB 2027/2028</small>
@@ -1027,6 +1051,24 @@ function renderProfile(profile) {
   setText('navSchool', schoolName);
   setText('footerSchool', schoolName);
   setText('logoInitial', 'AT');
+
+  // Logo: cari kolom apa pun yang namanya mengandung "logo" (Logo, URL Logo, logoSekolah, dst).
+  const logoKey = Object.keys(profile).find(k => /logo/i.test(k) && profile[k]);
+
+  if (logoKey) {
+    const logoImg = document.getElementById('logoImage');
+
+    logoImg.onload = function() {
+      document.getElementById('brandLogo').classList.add('has-logo');
+    };
+
+    // jika gambar gagal dimuat, tetap tampilkan inisial "AT"
+    logoImg.onerror = function() {
+      document.getElementById('brandLogo').classList.remove('has-logo');
+    };
+
+    logoImg.src = safeImage(profile[logoKey]);
+  }
 
   setText('heroDescription', profile.sambutan,
     'Membangun generasi berakhlak, cerdas, kreatif, dan mandiri.');
