@@ -123,7 +123,7 @@ button { cursor: pointer; }
 
 /* HERO */
 .hero { padding: 50px 0 70px; background: var(--cream); overflow: hidden; position: relative; }
-.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 40px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); align-items: center; gap: 40px; }
 
 .eyebrow {
   display: inline-block;
@@ -143,7 +143,7 @@ button { cursor: pointer; }
 .hero-note { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-top: 26px; color: var(--muted); font-size: 13px; font-weight: 700; }
 .hero-note span { color: var(--green); }
 
-.hero-image { position: relative; max-width: 470px; margin-left: auto; width: 100%; }
+.hero-image { position: relative; max-width: 611px; margin-left: auto; width: 100%; }
 .hero-photo {
   position: relative;
   z-index: 1;
@@ -154,7 +154,7 @@ button { cursor: pointer; }
   overflow: hidden;
 }
 /* Nilai bawaan. Pengaturan permanen ada di HERO_SETTINGS (bagian JavaScript). */
-.hero-photo { --hero-pos: 50% 40%; --hero-zoom: 1; --hero-ratio: 40/39; --hero-radius: 28px; }
+.hero-photo { --hero-pos: 50% 40%; --hero-zoom: 1; --hero-ratio: 26/15; --hero-radius: 28px; }
 .hero-photo img {
   width: 100%; height: 100%;
   object-fit: cover;
@@ -952,7 +952,7 @@ button { cursor: pointer; }
     <div class="panel-row">
       <label for="setRatio">Bentuk kotak</label>
       <select id="setRatio">
-        <option value="40/39">Memanjang +30% (≈1:1)</option>
+        <option value="26/15">Memanjang horizontal +30%</option>
         <option value="4/3">Landscape 4:3</option>
         <option value="16/9">Lebar 16:9</option>
         <option value="5/4">Hampir persegi 5:4</option>
@@ -1003,7 +1003,7 @@ const API_URL = 'https://script.google.com/macros/s/AKfycbwl7j1goOLjdiRzJKAV5Ca6
    ratio  : bentuk kotak, misal '4/3', '1/1', '5/4', '16/9', '3/4'
    radius : kelengkungan sudut dalam px (0 = kotak tajam)
    ============================================================ */
-const HERO_SETTINGS = { x: 50, y: 40, zoom: 1, ratio: '40/39', radius: 28 };
+const HERO_SETTINGS = { x: 50, y: 40, zoom: 1, ratio: '26/15', radius: 28 };
 
 let whatsappNumber = '';
 let galleryData = [];
