@@ -144,15 +144,6 @@ button { cursor: pointer; }
 .hero-note span { color: var(--green); }
 
 .hero-image { position: relative; max-width: 470px; margin-left: auto; width: 100%; }
-/* bingkai kuning di belakang foto */
-.hero-image::before {
-  content: '';
-  position: absolute;
-  inset: 16px -16px -16px 16px;
-  background: var(--yellow);
-  border-radius: 32px;
-  z-index: 0;
-}
 .hero-photo {
   position: relative;
   z-index: 1;
@@ -163,7 +154,7 @@ button { cursor: pointer; }
   overflow: hidden;
 }
 /* Nilai bawaan. Pengaturan permanen ada di HERO_SETTINGS (bagian JavaScript). */
-.hero-photo { --hero-pos: 50% 40%; --hero-zoom: 1; --hero-ratio: 4/3; --hero-radius: 28px; }
+.hero-photo { --hero-pos: 50% 40%; --hero-zoom: 1; --hero-ratio: 40/39; --hero-radius: 28px; }
 .hero-photo img {
   width: 100%; height: 100%;
   object-fit: cover;
@@ -200,7 +191,7 @@ button { cursor: pointer; }
 .panel-actions button { flex: 1; padding: 9px 10px; border-radius: 999px; border: 1px solid var(--green); background: white; color: var(--green); font-size: 12px; font-weight: 800; }
 .panel-actions button.primary { background: var(--green); color: white; }
 
-.sparkle { position: absolute; top: -26px; left: 14%; width: 54px; height: 54px; color: var(--yellow); }
+.sparkle { z-index: 2; position: absolute; top: -26px; left: 14%; width: 54px; height: 54px; color: var(--yellow); }
 
 .float-card {
   position: absolute;
@@ -598,22 +589,6 @@ button { cursor: pointer; }
               src="https://placehold.co/700x700/ffd21f/0f6b4f?text=KB+RA+AT+TIBYAN"
               alt="Kegiatan KB RA At Tibyan">
           </div>
-
-          <div class="float-card top">
-            <div class="float-icon">★</div>
-            <div>
-              <small>Pendidikan Berkarakter</small>
-              <strong>Akhlak Mulia</strong>
-            </div>
-          </div>
-
-          <div class="float-card bottom">
-            <div class="float-icon">✓</div>
-            <div>
-              <small>Penerimaan Murid Baru</small>
-              <strong>SPMB 2027/2028</strong>
-            </div>
-          </div>
         </div>
       </div>
       <div class="hero-stripe"></div>
@@ -977,6 +952,7 @@ button { cursor: pointer; }
     <div class="panel-row">
       <label for="setRatio">Bentuk kotak</label>
       <select id="setRatio">
+        <option value="40/39">Memanjang +30% (≈1:1)</option>
         <option value="4/3">Landscape 4:3</option>
         <option value="16/9">Lebar 16:9</option>
         <option value="5/4">Hampir persegi 5:4</option>
@@ -1027,7 +1003,7 @@ const API_URL = 'https://script.google.com/macros/s/AKfycbwl7j1goOLjdiRzJKAV5Ca6
    ratio  : bentuk kotak, misal '4/3', '1/1', '5/4', '16/9', '3/4'
    radius : kelengkungan sudut dalam px (0 = kotak tajam)
    ============================================================ */
-const HERO_SETTINGS = { x: 22, y: 48, zoom: 1.2, ratio: '4/3', radius: 32 };
+const HERO_SETTINGS = { x: 50, y: 40, zoom: 1, ratio: '40/39', radius: 28 };
 
 let whatsappNumber = '';
 let galleryData = [];
