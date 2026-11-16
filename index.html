@@ -10,6 +10,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
+<script>
+/* Mulai mengunduh foto utama sejak awal, sebelum halaman selesai dimuat. */
+try {
+  var heroCache = localStorage.getItem('spmbHeroSrc');
+  if (heroCache) {
+    var preload = document.createElement('link');
+    preload.rel = 'preload';
+    preload.as = 'image';
+    preload.href = heroCache;
+    document.head.appendChild(preload);
+  }
+} catch (e) {}
+</script>
+
 <style>
 :root {
   --green: #0F6B4F;
@@ -585,7 +599,9 @@ button { cursor: pointer; }
 
           <div class="hero-photo">
             <img id="heroImage"
-              src="https://placehold.co/700x700/ffd21f/0f6b4f?text=KB+RA+AT+TIBYAN"
+              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+              fetchpriority="high"
+              decoding="async"
               alt="Kegiatan KB RA At Tibyan">
           </div>
         </div>
@@ -1008,8 +1024,28 @@ const HERO_SETTINGS = { x: 50, y: 40, zoom: 1, ratio: '26/15', radius: 28 };
    Contoh: '081234567890'. Biarkan kosong jika nomor sudah ada di Spreadsheet. */
 const WHATSAPP_FALLBACK = '';
 
+/* Link foto utama (hero) agar langsung tampil begitu halaman dibuka,
+   tanpa menunggu data Spreadsheet. Boleh link Google Drive atau link foto biasa.
+   Kosongkan jika tidak ingin dipakai (kunjungan berikutnya tetap cepat karena cache). */
+const HERO_IMAGE_URL = '';
+
 let whatsappNumber = '';
 let galleryData = [];
+
+// Tampilkan foto hero secepat mungkin: dari cache kunjungan sebelumnya, atau link tetap di atas.
+setupHeroEarly();
+
+function setupHeroEarly() {
+  const heroEl = document.getElementById('heroImage');
+  if (!heroEl) return;
+
+  let src = '';
+
+  try { src = localStorage.getItem('spmbHeroSrc') || ''; } catch (e) {}
+  if (!src && HERO_IMAGE_URL) src = safeImage(HERO_IMAGE_URL, 1000);
+
+  if (src) heroEl.src = src;
+}
 
 /* =========================
    UTILITAS
@@ -1026,7 +1062,7 @@ function escapeHTML(value) {
 }
 
 // Mendukung link foto biasa dan link Google Drive.
-function safeImage(url) {
+function safeImage(url, width) {
   const fallback = 'https://placehold.co/600x400/e7f3eb/176b45?text=KB+RA+At+Tibyan';
 
   try {
@@ -1042,7 +1078,7 @@ function safeImage(url) {
         parsed.href.match(/\/d\/([\w-]+)/) ||
         parsed.href.match(/[?&]id=([\w-]+)/);
 
-      if (match) return 'https://lh3.googleusercontent.com/d/' + match[1];
+      if (match) return 'https://lh3.googleusercontent.com/d/' + match[1] + (width ? '=w' + width : '');
     }
 
     return parsed.href;
@@ -1225,12 +1261,51 @@ function setupImagePanel() {
   togglePanel();
 }
 
+const CACHE_KEY = 'spmbCache_v1';
+
+function renderAll(data) {
+  renderProfile(data.profile || {});
+  renderPrograms(data.programs || []);
+  renderGallery(data.gallery || []);
+  renderFacilities(data.facilities || []);
+  renderSPMB(data.spmb || {});
+  setupContact(data.profile || {});
+}
+
+function readCache() {
+  try {
+    return JSON.parse(localStorage.getItem(CACHE_KEY) || 'null');
+  } catch (e) {
+    return null;
+  }
+}
+
+function writeCache(data) {
+  try {
+    localStorage.setItem(CACHE_KEY, JSON.stringify(data));
+  } catch (e) {}
+}
+
 async function loadWebsiteData() {
+  // 1. Tampilkan data kunjungan sebelumnya LANGSUNG (tanpa menunggu server).
+  let shownText = '';
+  const cached = readCache();
+
+  if (cached && cached.success) {
+    try {
+      renderAll(cached);
+      shownText = JSON.stringify(cached);
+    } catch (e) {
+      console.warn(e);
+    }
+  }
+
   if (!apiReady()) {
-    showLoadError('URL Web App belum diisi di index.html (API_URL).');
+    if (!shownText) showLoadError('URL Web App belum diisi di index.html (API_URL).');
     return;
   }
 
+  // 2. Ambil data terbaru di belakang layar, perbarui hanya jika ada perubahan.
   try {
     const response = await fetch(API_URL);
     const data = await response.json();
@@ -1239,16 +1314,14 @@ async function loadWebsiteData() {
       throw new Error((data && data.message) || 'Data tidak valid.');
     }
 
-    renderProfile(data.profile || {});
-    renderPrograms(data.programs || []);
-    renderGallery(data.gallery || []);
-    renderFacilities(data.facilities || []);
-    renderSPMB(data.spmb || {});
-    setupContact(data.profile || {});
+    if (JSON.stringify(data) !== shownText) {
+      renderAll(data);
+      writeCache(data);
+    }
 
   } catch (error) {
     console.error(error);
-    showLoadError();
+    if (!shownText) showLoadError();
   }
 }
 
@@ -1285,7 +1358,7 @@ function renderProfile(profile) {
       document.getElementById('brandLogo').classList.remove('has-logo');
     };
 
-    logoImg.src = safeImage(profile[logoKey]);
+    logoImg.src = safeImage(profile[logoKey], 300);
   }
 
   setText('heroDescription', profile.sambutan,
@@ -1296,12 +1369,19 @@ function renderProfile(profile) {
   setText('visionText', profile.visi, 'Informasi visi sekolah.');
   setText('missionText', profile.misi, 'Informasi misi sekolah.');
 
+  const heroEl = document.getElementById('heroImage');
+
   if (profile.heroImage) {
-    document.getElementById('heroImage').src = safeImage(profile.heroImage);
+    const heroSrc = safeImage(profile.heroImage, 1000);
+    if (heroEl.getAttribute('src') !== heroSrc) heroEl.src = heroSrc;
+
+    try { localStorage.setItem('spmbHeroSrc', heroSrc); } catch (e) {}
+  } else if (String(heroEl.getAttribute('src') || '').startsWith('data:')) {
+    heroEl.src = 'https://placehold.co/700x500/e7f3eb/176b45?text=KB+RA+At+Tibyan';
   }
 
   if (profile.fotoProfil) {
-    document.getElementById('profileImage').src = safeImage(profile.fotoProfil);
+    document.getElementById('profileImage').src = safeImage(profile.fotoProfil, 900);
   }
 
   document.title = 'SPMB ' + schoolName + ' 2027/2028';
@@ -1322,7 +1402,7 @@ function renderPrograms(programs) {
 
   container.innerHTML = programs.map(item => `
     <article class="content-card">
-      <img src="${safeImage(item['URL Gambar'])}"
+      <img src="${safeImage(item['URL Gambar'], 700)}"
         alt="${escapeHTML(item['Nama Program'])}"
         loading="lazy">
       <div class="content-card-body">
@@ -1383,7 +1463,7 @@ function displayGallery(category) {
 
   container.innerHTML = filtered.map(item => `
     <div class="gallery-item" data-index="${galleryData.indexOf(item)}">
-      <img src="${safeImage(item['URL Gambar'])}"
+      <img src="${safeImage(item['URL Gambar'], 700)}"
         alt="${escapeHTML(item.Judul)}"
         loading="lazy">
       <div class="gallery-caption">${escapeHTML(item.Judul)}</div>
@@ -1412,7 +1492,7 @@ function renderFacilities(facilities) {
 
   container.innerHTML = facilities.map(item => `
     <article class="content-card">
-      <img src="${safeImage(item['URL Gambar'])}"
+      <img src="${safeImage(item['URL Gambar'], 700)}"
         alt="${escapeHTML(item['Nama Fasilitas'])}"
         loading="lazy">
       <div class="content-card-body">
@@ -1445,6 +1525,14 @@ function renderSPMB(spmb) {
       .forEach(el => el.disabled = true);
 
     setText('formMessage', 'Mohon maaf, pendaftaran saat ini ditutup.');
+  } else if (document.getElementById('successBox').hidden) {
+    document.getElementById('registrationForm')
+      .querySelectorAll('input, select, textarea, button[type="submit"]')
+      .forEach(el => el.disabled = false);
+
+    if (document.getElementById('formMessage').textContent.indexOf('ditutup') !== -1) {
+      setText('formMessage', '');
+    }
   }
 
   // Pilihan kelompok belajar diambil dari Spreadsheet (dipisah koma).
@@ -1454,12 +1542,16 @@ function renderSPMB(spmb) {
     .map(x => x.trim())
     .filter(Boolean);
 
+  const previousGroup = groupSelect.value;
+
   if (groups.length) {
     groupSelect.innerHTML =
       '<option value="">Pilih kelompok belajar</option>' +
       groups.map(group =>
         `<option value="${escapeHTML(group)}">${escapeHTML(group)}</option>`
       ).join('');
+
+    groupSelect.value = previousGroup;
   }
 }
 
@@ -1619,7 +1711,7 @@ function setupLightbox() {
 }
 
 function openLightbox(item) {
-  document.getElementById('lightboxImage').src = safeImage(item['URL Gambar']);
+  document.getElementById('lightboxImage').src = safeImage(item['URL Gambar'], 1600);
   setText('lightboxCaption', item.Judul);
   document.getElementById('lightbox').classList.add('show');
 }
