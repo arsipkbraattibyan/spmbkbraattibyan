@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SPMB RA At Tibyan 2027/2028</title>
-  <meta name="description" content="Penerimaan Murid Baru RA At Tibyan tahun ajaran 2027/2028.">
+  <title>SPMB KB RA At Tibyan 2027/2028</title>
+  <meta name="description" content="Penerimaan Murid Baru KB RA At Tibyan tahun ajaran 2027/2028.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,16 +12,20 @@
 
 <style>
 :root {
-  --green: #176B45;
-  --green-dark: #105235;
-  --green-light: #E7F3EB;
-  --yellow: #F5C84C;
-  --text: #25352C;
-  --muted: #718078;
+  --green: #0F6B4F;
+  --green-dark: #0B5440;
+  --green-light: #E3F4EC;
+  --teal: #B5ECDD;
+  --yellow: #FFD21F;
+  --yellow-btn: #FADF3C;
+  --red: #F0431A;
+  --cream: #FEF8EA;
+  --text: #1F2A37;
+  --muted: #5B6773;
   --white: #FFFFFF;
-  --soft: #F5F8F5;
-  --border: #E4EBE5;
-  --shadow: 0 12px 35px rgba(25,75,48,.09);
+  --soft: #FBF6EA;
+  --border: #EDE6D3;
+  --shadow: 0 12px 35px rgba(31,42,55,.10);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,172 +48,213 @@ button { cursor: pointer; }
 
 /* HEADER */
 .header {
-  height: 76px;
-  background: rgba(255,255,255,.97);
+  height: 82px;
+  background: var(--cream);
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid var(--border);
 }
 
-.nav-container { height: 100%; display: flex; justify-content: space-between; align-items: center; }
+.nav-container { height: 100%; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 .brand { display: flex; align-items: center; gap: 11px; }
 
 .brand-logo {
-  width: 45px; height: 45px;
+  width: 46px; height: 46px;
   background: var(--green);
-  color: white;
-  border-radius: 13px;
+  color: var(--yellow);
+  border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 900;
+  border: 3px solid var(--yellow);
 }
 
-.brand strong { display: block; color: var(--green); font-size: 17px; line-height: 1.2; }
-.brand small { color: var(--muted); font-size: 11px; }
+.brand strong { display: block; color: var(--green); font-size: 17px; line-height: 1.2; font-weight: 900; letter-spacing: .5px; }
+.brand small { color: var(--muted); font-size: 11px; font-weight: 700; }
 
-.nav-menu { display: flex; align-items: center; gap: 23px; }
-.nav-menu a { font-size: 13px; font-weight: 800; transition: .2s; }
+.nav-menu { display: flex; align-items: center; gap: 26px; }
+.nav-menu a { font-size: 14px; font-weight: 600; color: var(--text); transition: .2s; }
 .nav-menu a:hover { color: var(--green); }
-.nav-menu .nav-button { background: var(--green); color: white; padding: 11px 18px; border-radius: 9px; }
-.nav-menu .nav-button:hover { color: white; }
+.nav-menu .nav-button {
+  background: var(--yellow-btn);
+  color: var(--text);
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  margin-left: 6px;
+}
+.nav-menu .nav-button:hover { color: var(--text); background: #F5D321; }
 
-.menu-toggle { display: none; background: none; border: none; font-size: 25px; color: var(--green); }
+.menu-toggle { display: none; background: none; border: none; font-size: 26px; color: var(--green); }
 
 /* BUTTON */
 .btn {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 13px 22px;
-  border-radius: 10px;
+  gap: 8px;
+  padding: 13px 26px;
+  border-radius: 999px;
   font-size: 14px;
-  font-weight: 900;
-  border: 1px solid transparent;
+  font-weight: 700;
+  border: 2px solid transparent;
   transition: .2s;
 }
 
 .btn:hover { transform: translateY(-2px); }
+.btn svg { width: 18px; height: 18px; fill: currentColor; }
 .btn-primary { background: var(--green); color: white; }
 .btn-primary:hover { background: var(--green-dark); }
-.btn-outline { border-color: var(--green); color: var(--green); background: white; }
-.btn-yellow { background: var(--yellow); color: var(--green-dark); }
+.btn-outline { border-color: var(--green); color: var(--green); background: transparent; }
+.btn-outline:hover { background: var(--green-light); }
+.btn-yellow { background: var(--yellow-btn); color: var(--text); }
 
 /* HERO */
-.hero { padding: 80px 0; background: linear-gradient(120deg,#F3F8F3,#E8F3E9); overflow: hidden; }
-.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 55px; }
+.hero { padding: 50px 0 70px; background: var(--cream); overflow: hidden; position: relative; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 40px; }
 
 .eyebrow {
   display: inline-block;
-  color: var(--green);
-  background: var(--green-light);
-  padding: 7px 13px;
-  border-radius: 30px;
-  font-size: 11px;
-  font-weight: 900;
-  letter-spacing: .8px;
-  margin-bottom: 18px;
+  color: var(--text);
+  background: var(--teal);
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 22px;
 }
 
-.hero h1 { font-size: clamp(36px,5vw,57px); line-height: 1.15; font-weight: 900; letter-spacing: -1.7px; margin-bottom: 22px; }
+.hero h1 { font-size: clamp(36px,4.6vw,54px); line-height: 1.2; font-weight: 800; letter-spacing: -1px; margin-bottom: 24px; color: var(--text); }
 .hero h1 span { color: var(--green); }
-.hero-content > p { max-width: 510px; color: var(--muted); font-size: 16px; margin-bottom: 27px; }
+.hero-content > p { max-width: 480px; color: #3B4754; font-size: 16px; margin-bottom: 28px; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.hero-note { display: flex; flex-wrap: wrap; gap: 15px; margin-top: 28px; color: var(--muted); font-size: 12px; font-weight: 800; }
+.hero-note { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-top: 26px; color: var(--muted); font-size: 13px; font-weight: 700; }
 .hero-note span { color: var(--green); }
 
-.hero-image { position: relative; }
-.hero-image > img { width: 100%; height: 400px; object-fit: cover; border-radius: 25px; box-shadow: var(--shadow); }
+.hero-image { position: relative; max-width: 470px; margin-left: auto; width: 100%; }
+.hero-circle {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background: var(--yellow);
+  overflow: hidden;
+}
+.hero-circle img { width: 100%; height: 100%; object-fit: cover; }
 
-.image-label {
+.sparkle { position: absolute; top: -26px; left: 14%; width: 54px; height: 54px; color: var(--yellow); }
+
+.float-card {
   position: absolute;
-  bottom: 18px; left: 18px; right: 18px;
   background: white;
-  padding: 15px 20px;
-  border-radius: 13px;
+  border-radius: 14px;
+  padding: 12px 18px 12px 14px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 12px;
   box-shadow: var(--shadow);
 }
+.float-card small { display: block; color: var(--muted); font-size: 12px; line-height: 1.3; }
+.float-card strong { display: block; font-size: 14px; line-height: 1.3; }
+.float-icon {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  font-weight: 900;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.float-card.top { top: 22%; right: -22px; }
+.float-card.top .float-icon { background: #12B981; }
+.float-card.bottom { bottom: 6%; left: -34px; }
+.float-card.bottom .float-icon { background: var(--red); }
 
-.image-label strong { color: var(--green); font-size: 16px; }
-.image-label small { color: var(--muted); }
+/* garis tiga warna */
+.hero-stripe { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; background: linear-gradient(90deg, var(--teal) 0 33.33%, var(--yellow) 33.33% 66.66%, var(--red) 66.66% 100%); }
 
 /* SECTION */
 .section { padding: 85px 0; }
 .section-soft { background: var(--soft); }
 .section-heading { text-align: center; max-width: 650px; margin: 0 auto 45px; }
-.section-heading .eyebrow { margin-bottom: 12px; }
+.section-heading .eyebrow { margin-bottom: 14px; }
 
 .section-heading h2,
 .profile-content h2,
 .contact-grid h2 {
   font-size: clamp(27px,4vw,38px);
   line-height: 1.25;
-  font-weight: 900;
-  color: var(--green-dark);
+  font-weight: 800;
+  color: var(--text);
   margin-bottom: 13px;
+  letter-spacing: -.5px;
 }
 
 .section-heading p,
 .profile-content > p,
-.contact-grid > div > p { color: var(--muted); font-size: 14px; }
+.contact-grid > div > p { color: var(--muted); font-size: 15px; }
 
-/* ADVANTAGES */
+/* ADVANTAGES (pita hijau tua seperti referensi) */
+.advantages { background: var(--green); padding: 75px 0; }
+.advantages .section-heading h2 { color: white; }
+.advantages .section-heading p { color: #CFE8DD; }
+.advantages .eyebrow { background: rgba(255,255,255,.16); color: var(--yellow); }
+
 .advantage-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 18px; }
-.advantage-card { padding: 27px 22px; border: 1px solid var(--border); border-radius: 16px; background: white; transition: .25s; }
-.advantage-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+.advantage-card { padding: 27px 22px; border-radius: 20px; background: white; transition: .25s; }
+.advantage-card:hover { transform: translateY(-5px); box-shadow: 0 14px 30px rgba(0,0,0,.18); }
 
 .advantage-icon {
-  width: 48px; height: 48px;
+  width: 50px; height: 50px;
   display: grid;
   place-items: center;
-  background: var(--green-light);
+  background: #FFF3BF;
   color: var(--green);
-  border-radius: 13px;
+  border-radius: 50%;
   font-size: 23px;
   margin-bottom: 17px;
 }
 
-.advantage-card h3 { color: var(--green-dark); font-size: 17px; margin-bottom: 8px; }
+.advantage-card h3 { color: var(--text); font-size: 17px; margin-bottom: 8px; }
 .advantage-card p { font-size: 13px; color: var(--muted); }
 
 /* PROFILE */
 .profile-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 55px; }
-.profile-image img { width: 100%; height: 390px; object-fit: cover; border-radius: 22px; }
+.profile-image img { width: 100%; height: 390px; object-fit: cover; border-radius: 28px; box-shadow: var(--shadow); }
 .profile-content > p { margin-bottom: 20px; white-space: pre-line; }
 
-.vision-box { border-left: 4px solid var(--green); background: white; padding: 15px 18px; margin-top: 13px; border-radius: 0 12px 12px 0; }
+.vision-box { border-left: 5px solid var(--yellow); background: white; padding: 15px 18px; margin-top: 13px; border-radius: 0 16px 16px 0; }
 .vision-box strong { color: var(--green); }
 .vision-box p { font-size: 13px; color: var(--muted); margin-top: 5px; white-space: pre-line; }
 
 /* CARDS */
 .card-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
-.content-card { background: white; border: 1px solid var(--border); border-radius: 17px; overflow: hidden; transition: .25s; }
+.content-card { background: white; border: 1px solid var(--border); border-radius: 22px; overflow: hidden; transition: .25s; }
 .content-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
 .content-card img { width: 100%; height: 205px; object-fit: cover; }
 .content-card-body { padding: 20px; }
-.content-card h3 { color: var(--green-dark); font-size: 17px; margin-bottom: 9px; }
+.content-card h3 { color: var(--text); font-size: 17px; margin-bottom: 9px; }
 .content-card p { color: var(--muted); font-size: 13px; white-space: pre-line; }
 
 /* GALLERY */
 .gallery-filter { display: flex; justify-content: center; flex-wrap: wrap; gap: 9px; margin-bottom: 28px; }
 
 .filter-btn {
-  padding: 9px 17px;
+  padding: 9px 18px;
   border: 1px solid var(--border);
   background: white;
-  border-radius: 30px;
+  border-radius: 999px;
   color: var(--muted);
-  font-size: 12px;
-  font-weight: 800;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .filter-btn.active { background: var(--green); color: white; border-color: var(--green); }
 
 .gallery-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
-.gallery-item { position: relative; overflow: hidden; border-radius: 15px; cursor: pointer; background: var(--green-light); }
+.gallery-item { position: relative; overflow: hidden; border-radius: 20px; cursor: pointer; background: var(--green-light); }
 .gallery-item img { width: 100%; height: 240px; object-fit: cover; transition: .3s; }
 .gallery-item:hover img { transform: scale(1.05); }
 
@@ -220,7 +265,7 @@ button { cursor: pointer; }
   color: white;
   background: linear-gradient(transparent,rgba(0,0,0,.7));
   font-size: 13px;
-  font-weight: 900;
+  font-weight: 800;
 }
 
 /* SPMB */
@@ -229,7 +274,7 @@ button { cursor: pointer; }
 .light-heading .eyebrow { background: rgba(255,255,255,.15); color: var(--yellow); }
 
 .spmb-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 15px; }
-.spmb-card { padding: 23px; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.16); border-radius: 15px; }
+.spmb-card { padding: 23px; background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.16); border-radius: 20px; }
 .spmb-card > span { font-size: 25px; color: var(--yellow); }
 .spmb-card h3 { font-size: 16px; margin: 10px 0; }
 .spmb-card p { font-size: 13px; color: #D8E8DD; white-space: pre-line; }
@@ -238,26 +283,27 @@ button { cursor: pointer; }
   margin-top: 30px;
   padding: 24px 28px;
   background: white;
-  color: var(--green-dark);
-  border-radius: 16px;
+  color: var(--text);
+  border-radius: 22px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 20px;
 }
 
+.spmb-bottom h3 { color: var(--green); }
 .spmb-bottom p { color: var(--muted); font-size: 13px; white-space: pre-line; }
 
 /* FORM */
 .form-container { max-width: 800px; }
-.registration-form { padding: 35px; border: 1px solid var(--border); border-radius: 20px; box-shadow: var(--shadow); }
+.registration-form { padding: 35px; border: 1px solid var(--border); border-radius: 26px; box-shadow: var(--shadow); background: white; }
 
 .registration-form h3 {
   color: var(--green);
   font-size: 17px;
   margin: 10px 0 20px;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 2px solid var(--yellow);
 }
 
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 28px; }
@@ -270,9 +316,9 @@ button { cursor: pointer; }
 .form-group textarea {
   width: 100%;
   border: 1px solid var(--border);
-  border-radius: 9px;
+  border-radius: 12px;
   padding: 12px 14px;
-  background: #FAFCFA;
+  background: #FFFDF7;
   color: var(--text);
   outline: none;
   font-size: 14px;
@@ -280,7 +326,7 @@ button { cursor: pointer; }
 
 .form-group input:focus,
 .form-group select:focus,
-.form-group textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(23,107,69,.08); }
+.form-group textarea:focus { border-color: var(--green); box-shadow: 0 0 0 3px rgba(15,107,79,.10); }
 
 .form-group textarea { min-height: 90px; resize: vertical; }
 
@@ -290,12 +336,12 @@ button { cursor: pointer; }
 .agreement { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: var(--muted); margin: 20px 0; }
 .agreement input { margin-top: 5px; accent-color: var(--green); }
 
-.submit-btn { width: 100%; border: none; }
+.submit-btn { width: 100%; }
 .submit-btn:disabled { opacity: .6; cursor: wait; }
 
 .form-message { margin-top: 15px; font-size: 13px; text-align: center; color: #B3261E; }
 
-.success-box { margin-top: 22px; padding: 25px; text-align: center; background: var(--green-light); border-radius: 14px; }
+.success-box { margin-top: 22px; padding: 25px; text-align: center; background: var(--green-light); border-radius: 18px; }
 .success-box[hidden] { display: none; }
 
 .success-icon {
@@ -317,11 +363,12 @@ button { cursor: pointer; }
 .contact-item { margin: 22px 0; }
 .contact-item strong { color: var(--green); }
 .contact-item p { color: var(--muted); font-size: 14px; white-space: pre-line; }
-.map-container { height: 340px; overflow: hidden; border-radius: 17px; background: var(--green-light); }
+.map-container { height: 340px; overflow: hidden; border-radius: 24px; background: var(--green-light); }
 .map-container iframe { width: 100%; height: 100%; border: 0; }
 
 /* FOOTER */
-.footer { background: #0D3825; color: white; padding: 35px 0; }
+.footer { background: var(--green-dark); color: white; padding: 35px 0; position: relative; }
+.footer::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 6px; background: linear-gradient(90deg, var(--teal) 0 33.33%, var(--yellow) 33.33% 66.66%, var(--red) 66.66% 100%); }
 .footer-content { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 .footer h3 { color: var(--yellow); font-size: 19px; }
 .footer p { font-size: 12px; color: #D4E5DA; }
@@ -330,16 +377,16 @@ button { cursor: pointer; }
 .floating-wa {
   position: fixed;
   right: 23px; bottom: 23px;
-  width: 55px; height: 55px;
+  width: 56px; height: 56px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   color: white;
   background: #20B95B;
-  font-size: 25px;
   z-index: 90;
   box-shadow: var(--shadow);
 }
+.floating-wa svg { width: 30px; height: 30px; fill: currentColor; }
 
 /* LIGHTBOX */
 .lightbox {
@@ -362,23 +409,24 @@ button { cursor: pointer; }
 .loading { grid-column: 1/-1; text-align: center; color: var(--muted); padding: 35px; }
 
 /* RESPONSIVE */
-@media (max-width: 950px) {
-  .nav-menu { gap: 12px; }
-  .nav-menu a { font-size: 11px; }
+@media (max-width: 1000px) {
+  .nav-menu { gap: 14px; }
+  .nav-menu a { font-size: 12px; }
+  .nav-menu .nav-button { padding: 10px 14px; }
   .hero-grid { gap: 25px; }
   .advantage-grid, .spmb-grid { grid-template-columns: repeat(2,1fr); }
 }
 
-@media (max-width: 760px) {
-  .header { height: 68px; }
+@media (max-width: 860px) {
+  .header { height: 70px; }
   .menu-toggle { display: block; }
 
   .nav-menu {
     display: none;
     position: absolute;
-    top: 68px; left: 0; right: 0;
+    top: 70px; left: 0; right: 0;
     padding: 18px 5%;
-    background: white;
+    background: var(--cream);
     box-shadow: var(--shadow);
     flex-direction: column;
     align-items: stretch;
@@ -387,14 +435,14 @@ button { cursor: pointer; }
 
   .nav-menu.show { display: flex; }
   .nav-menu a { padding: 12px; font-size: 14px; border-bottom: 1px solid var(--border); }
-  .nav-menu .nav-button { margin-top: 10px; text-align: center; }
+  .nav-menu .nav-button { margin: 12px 0 0; text-align: center; border-bottom: 0; }
 
-  .hero { padding: 50px 0; }
+  .hero { padding: 35px 0 60px; }
   .hero-grid, .profile-grid, .contact-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 39px; }
-  .hero-image > img { height: 280px; }
+  .hero-image { margin: 20px auto 0; max-width: 400px; }
+  .float-card.top { right: -6px; }
+  .float-card.bottom { left: -6px; }
   .section { padding: 60px 0; }
-  .advantage-grid { grid-template-columns: repeat(2,1fr); }
   .card-grid, .gallery-grid { grid-template-columns: repeat(2,1fr); gap: 12px; }
   .content-card img { height: 155px; }
   .content-card-body { padding: 14px; }
@@ -413,8 +461,12 @@ button { cursor: pointer; }
   .gallery-item img { height: 140px; }
   .form-grid { grid-template-columns: 1fr; }
   .form-group.full { grid-column: auto; }
-  .hero h1 { font-size: 34px; }
-  .hero-note { gap: 8px; font-size: 10px; }
+  .hero h1 { font-size: 33px; }
+  .float-card { padding: 9px 12px 9px 10px; }
+  .float-card strong { font-size: 12px; }
+  .float-card small { font-size: 10px; }
+  .float-icon { width: 30px; height: 30px; font-size: 13px; }
+  .brand small { display: none; }
 }
 </style>
 </head>
@@ -427,7 +479,7 @@ button { cursor: pointer; }
       <a href="#beranda" class="brand">
         <div class="brand-logo" id="logoInitial">AT</div>
         <div>
-          <strong id="navSchool">RA AT TIBYAN</strong>
+          <strong id="navSchool">KB RA AT TIBYAN</strong>
           <small>SPMB 2027/2028</small>
         </div>
       </a>
@@ -442,7 +494,7 @@ button { cursor: pointer; }
         <a href="#fasilitas">Fasilitas</a>
         <a href="#spmb">SPMB</a>
         <a href="#kontak">Kontak</a>
-        <a href="#daftar" class="nav-button">Daftar Sekarang</a>
+        <a href="#daftar" class="nav-button">Info Pendaftaran →</a>
       </nav>
     </div>
   </header>
@@ -453,22 +505,23 @@ button { cursor: pointer; }
     <section class="hero" id="beranda">
       <div class="container hero-grid">
         <div class="hero-content">
-          <span class="eyebrow">PENERIMAAN MURID BARU 2027/2028</span>
+          <span class="eyebrow">Selamat Datang di KB RA At Tibyan</span>
 
           <h1>
-            Mari Tumbuh,<br>
-            Belajar dan<br>
-            <span>Berprestasi Bersama Kami!</span>
+            Mari Tumbuh, Belajar dan <span>Berprestasi Bersama Kami!</span>
           </h1>
 
           <p id="heroDescription">
             Membangun generasi berakhlak, cerdas, kreatif,
-            dan mandiri bersama RA At Tibyan.
+            dan mandiri bersama KB RA At Tibyan.
           </p>
 
           <div class="hero-actions">
-            <a href="#daftar" class="btn btn-primary">Daftar Sekarang →</a>
-            <a href="#profil" class="btn btn-outline">Kenali Sekolah</a>
+            <a href="#daftar" class="btn btn-primary">SPMB Online →</a>
+            <a href="#kontak" class="btn btn-outline">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Konsultasi Admin
+            </a>
           </div>
 
           <div class="hero-note">
@@ -478,15 +531,32 @@ button { cursor: pointer; }
         </div>
 
         <div class="hero-image">
-          <img id="heroImage"
-            src="https://placehold.co/700x550/e7f3eb/176b45?text=RA+AT+TIBYAN"
-            alt="Kegiatan RA At Tibyan">
-          <div class="image-label">
-            <strong>RA At Tibyan</strong>
-            <small>Tempat tumbuh dan belajar bersama</small>
+          <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 0c.6 6.2 5.8 11.4 12 12-6.2.6-11.4 5.8-12 12-.6-6.2-5.8-11.4-12-12C6.2 11.4 11.4 6.2 12 0z"/></svg>
+
+          <div class="hero-circle">
+            <img id="heroImage"
+              src="https://placehold.co/700x700/ffd21f/0f6b4f?text=KB+RA+AT+TIBYAN"
+              alt="Kegiatan KB RA At Tibyan">
+          </div>
+
+          <div class="float-card top">
+            <div class="float-icon">★</div>
+            <div>
+              <small>Pendidikan Berkarakter</small>
+              <strong>Akhlak Mulia</strong>
+            </div>
+          </div>
+
+          <div class="float-card bottom">
+            <div class="float-icon">✓</div>
+            <div>
+              <small>Penerimaan Murid Baru</small>
+              <strong>SPMB 2027/2028</strong>
+            </div>
           </div>
         </div>
       </div>
+      <div class="hero-stripe"></div>
     </section>
 
     <!-- KEUNGGULAN -->
@@ -537,9 +607,9 @@ button { cursor: pointer; }
 
         <div class="profile-content">
           <span class="eyebrow">TENTANG KAMI</span>
-          <h2 id="profileTitle">Mengenal RA At Tibyan</h2>
+          <h2 id="profileTitle">Mengenal KB RA At Tibyan</h2>
           <p id="profileDescription">
-            Selamat datang di RA At Tibyan.
+            Selamat datang di KB RA At Tibyan.
             Mari mengenal lingkungan dan program pendidikan kami.
           </p>
 
@@ -610,7 +680,7 @@ button { cursor: pointer; }
       <div class="container">
         <div class="section-heading light-heading">
           <span class="eyebrow">INFORMASI PENERIMAAN</span>
-          <h2>SPMB RA At Tibyan 2027/2028</h2>
+          <h2>SPMB KB RA At Tibyan 2027/2028</h2>
           <p>Informasi penerimaan murid baru tahun ajaran 2027/2028.</p>
         </div>
 
@@ -742,7 +812,7 @@ button { cursor: pointer; }
             <input type="checkbox" id="agreement" required>
             <span>
               Saya menyetujui penggunaan data ini untuk keperluan
-              proses penerimaan murid baru RA At Tibyan.
+              proses penerimaan murid baru KB RA At Tibyan.
             </span>
           </label>
 
@@ -774,7 +844,7 @@ button { cursor: pointer; }
         <div>
           <span class="eyebrow">HUBUNGI KAMI</span>
           <h2>Informasi Lebih Lanjut?</h2>
-          <p>Silakan hubungi RA At Tibyan untuk mendapatkan informasi mengenai pendaftaran dan kegiatan sekolah.</p>
+          <p>Silakan hubungi KB RA At Tibyan untuk mendapatkan informasi mengenai pendaftaran dan kegiatan sekolah.</p>
 
           <div class="contact-item">
             <strong>Alamat Sekolah</strong>
@@ -793,7 +863,7 @@ button { cursor: pointer; }
 
         <div class="map-container">
           <iframe id="mapFrame"
-            title="Lokasi RA At Tibyan"
+            title="Lokasi KB RA At Tibyan"
             src="about:blank"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade">
@@ -808,16 +878,18 @@ button { cursor: pointer; }
   <footer class="footer">
     <div class="container footer-content">
       <div>
-        <h3 id="footerSchool">RA AT TIBYAN</h3>
+        <h3 id="footerSchool">KB RA AT TIBYAN</h3>
         <p>Membangun Generasi Berakhlak, Cerdas, Kreatif, dan Mandiri.</p>
       </div>
-      <p>© 2027 RA At Tibyan. Semua Hak Dilindungi.</p>
+      <p>© 2027 KB RA At Tibyan. Semua Hak Dilindungi.</p>
     </div>
   </footer>
 
   <!-- WHATSAPP FLOATING -->
   <a href="#" id="floatingWA" class="floating-wa"
-    target="_blank" rel="noopener" aria-label="WhatsApp">☎</a>
+    target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
 
   <!-- IMAGE LIGHTBOX -->
   <div class="lightbox" id="lightbox">
@@ -828,7 +900,7 @@ button { cursor: pointer; }
 
 <script>
 /* =================================
-   SPMB RA AT TIBYAN - JAVASCRIPT
+   SPMB KB RA AT TIBYAN - JAVASCRIPT
 ================================= */
 
 /* ============================================================
@@ -855,7 +927,7 @@ function escapeHTML(value) {
 
 // Mendukung link foto biasa dan link Google Drive.
 function safeImage(url) {
-  const fallback = 'https://placehold.co/600x400/e7f3eb/176b45?text=RA+At+Tibyan';
+  const fallback = 'https://placehold.co/600x400/e7f3eb/176b45?text=KB+RA+At+Tibyan';
 
   try {
     const parsed = new URL(String(url || '').trim());
@@ -950,7 +1022,7 @@ function showLoadError(detail) {
 ========================= */
 
 function renderProfile(profile) {
-  const schoolName = profile.namaSekolah || 'RA AT TIBYAN';
+  const schoolName = profile.namaSekolah || 'KB RA AT TIBYAN';
 
   setText('navSchool', schoolName);
   setText('footerSchool', schoolName);
@@ -1142,7 +1214,7 @@ function setupContact(profile) {
   setText('contactWhatsapp', profile.whatsapp, 'Nomor belum tersedia.');
 
   const link = makeWhatsAppLink(
-    'Assalamu’alaikum, saya ingin bertanya tentang SPMB RA At Tibyan 2027/2028.'
+    'Assalamu’alaikum, saya ingin bertanya tentang SPMB KB RA At Tibyan 2027/2028.'
   );
 
   document.getElementById('contactWA').href = link;
@@ -1259,7 +1331,7 @@ function showSuccess(form, result) {
   document.getElementById('whatsappAfterRegister').onclick = function() {
     window.open(
       makeWhatsAppLink(
-        'Assalamu’alaikum, saya telah mengirim pendaftaran SPMB RA At Tibyan 2027/2028. Nomor pendaftaran: ' +
+        'Assalamu’alaikum, saya telah mengirim pendaftaran SPMB KB RA At Tibyan 2027/2028. Nomor pendaftaran: ' +
         result.number + '. Nama calon murid: ' + result.name
       ),
       '_blank',
